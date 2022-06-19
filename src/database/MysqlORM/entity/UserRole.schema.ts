@@ -29,12 +29,12 @@ export class UserRole extends BaseEntity {
         type: "timestamp", 
         default: () => "CURRENT_TIMESTAMP(6)" 
     })
-    created_at: Date;
+    created_at: Date
  
     @UpdateDateColumn({ 
         type: "timestamp", 
         default: () => "CURRENT_TIMESTAMP(6)", onUpdate: "CURRENT_TIMESTAMP(6)" 
     })
-    updated_at: Date;
+    updated_at: Date
 
 }

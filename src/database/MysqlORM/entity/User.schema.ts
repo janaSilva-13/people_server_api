@@ -1,11 +1,15 @@
+import { Field, ObjectType } from 'type-graphql'
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, BaseEntity } from "typeorm"
 
-@Entity("user")
+@ObjectType()
+@Entity("users")
 export class User extends BaseEntity {
 
+    @Field(() => String)
     @PrimaryGeneratedColumn("uuid")
     id: string
 
+    @Field(() => String)
     @Column({
         type: "varchar",
         length: 200,
@@ -13,6 +17,7 @@ export class User extends BaseEntity {
     })
     fullname: string
 
+    @Field(() => String)
     @Column({
         type: "varchar",
         length: 200,
@@ -21,6 +26,7 @@ export class User extends BaseEntity {
     })
     username: string
 
+    @Field(() => String)
     @Column({
         type: "varchar",
         length: 255,
@@ -35,6 +41,7 @@ export class User extends BaseEntity {
     })
     password: string
 
+    @Field(() => Boolean)
     @Column({
         type: "boolean",
         nullable: false,
@@ -42,12 +49,14 @@ export class User extends BaseEntity {
     })
     status: Boolean
 
+    @Field(() => String)
     @CreateDateColumn({ 
         type: "timestamp", 
         default: () => "CURRENT_TIMESTAMP(6)" 
     })
     created_at: Date
  
+    @Field(() => String)
     @UpdateDateColumn({ 
         type: "timestamp", 
         default: () => "CURRENT_TIMESTAMP(6)", onUpdate: "CURRENT_TIMESTAMP(6)" 
